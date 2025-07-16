@@ -1,4 +1,9 @@
 {
   "name": "CampusAppFinal",
-  "displayName": "CampusAppFinal"
+  "displayName": "CampusAppFinal",
+  "extra": {
+    "eas": {
+      "projectId": "c4355dce-46f5-4fc7-8362-d6de99e2409f"
+    }
+  }
 }
