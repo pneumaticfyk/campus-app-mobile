@@ -2,39 +2,31 @@
 name: Build Android APK with EAS
 
 on:
-  # 当有代码被推送到 main 分支时，自动触发
   push:
     branches:
       - main
-  # 也允许你手动在 GitHub 网页上触发
   workflow_dispatch:
 
 jobs:
   build:
-    runs-on: ubuntu-latest # 使用最新的 Ubuntu 服务器来构建
+    runs-on: ubuntu-latest
     steps:
-      # 第1步：下载你的仓库代码到服务器
       - name: Checkout repository
         uses: actions/checkout@v3
 
-      # 第2步：安装 Node.js 环境
       - name: Set up Node.js
         uses: actions/setup-node@v3
         with:
           node-version: 18
 
-      # 第3步：安装 Expo 和 EAS 工具，并使用我们存储的 Token 登录
       - name: Set up Expo and EAS
         uses: expo/expo-github-action@v8
         with:
           eas-version: latest
           token: ${{ secrets.EXPO_TOKEN }}
 
-      # 第4步：安装项目的所有 npm 依赖
       - name: Install dependencies
         run: npm install
 
-      # 第5步：开始云端构建！
-      # --non-interactive 参数确保它在自动化脚本中不会提问
       - name: Start EAS Build
         run: eas build --platform android --profile production --non-interactive
