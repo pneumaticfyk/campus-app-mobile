@@ -28,7 +28,7 @@ jobs:
         uses: expo/expo-github-action@v8
         with:
           eas-version: latest
-          token: ${{ dS_FUBR1lb8gA6R-Yl_Cx6i_BtRJXux_DmXVaaqi }}
+          token: ${{ secrets.EXPO_TOKEN }}
 
       # 第4步：安装项目的所有 npm 依赖
       - name: Install dependencies
