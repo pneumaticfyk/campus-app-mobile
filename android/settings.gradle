@@ -1,6 +1,27 @@
-pluginManagement { includeBuild("../node_modules/@react-native/gradle-plugin") }
-plugins { id("com.facebook.react.settings") }
-extensions.configure(com.facebook.react.ReactSettingsExtension){ ex -> ex.autolinkLibrariesFromCommand() }
+// D:\RN_Final_Try\CampusAppFinal\android\settings.gradle
+
+pluginManagement {
+    repositories {
+        // 为插件管理配置仓库
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        gradlePluginPortal()
+    }
+}
+
+dependencyResolutionManagement {
+    // 保持这一行被注释或删除，以兼容未来的 EAS Build
+    // repositoriesMode.set(RepositoriesMode.FAIL_ON_PROJECT_REPOS)
+    
+    // 在这里为整个项目的所有模块，统一声明依赖仓库
+    repositories {
+        maven { url 'https://maven.aliyun.com/repository/google' }
+        maven { url 'https://maven.aliyun.com/repository/public' }
+        
+        maven { url "$rootDir/../node_modules/react-native/android" }
+        maven { url "$rootDir/../node_modules/jsc-android/dist" }
+    }
+}
+
 rootProject.name = 'CampusAppFinal'
 include ':app'
-includeBuild('../node_modules/@react-native/gradle-plugin')
