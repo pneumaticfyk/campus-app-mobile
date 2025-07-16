@@ -1,22 +1,21 @@
-// D:\RN_Final_Try\CampusAppFinal\android\app\build.gradle
-
 apply plugin: "com.android.application"
 apply plugin: "com.facebook.react"
 
 android {
-    namespace "com.campusappfinal" // 使用新项目的名字
-    compileSdkVersion rootProject.ext.compileSdkVersion // 从顶层读取版本号
-
+    namespace "com.campusappfinal" // 确保包名和你的新项目匹配
+    compileSdkVersion rootProject.ext.compileSdkVersion
+    
     defaultConfig {
         applicationId "com.campusappfinal"
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
-        versionCode 1
+        versionCode 1 // EAS 会自动增加这个
         versionName "1.0"
     }
 
     signingConfigs {
         release {
+            // EAS 会自动处理签名，这里的内容会被覆盖，但保留着是好习惯
             if (project.hasProperty('MYAPP_UPLOAD_STORE_FILE')) {
                 storeFile file(MYAPP_UPLOAD_STORE_FILE)
                 storePassword MYAPP_UPLOAD_STORE_PASSWORD
@@ -30,7 +29,6 @@ android {
         release {
             signingConfig signingConfigs.release
             minifyEnabled false
-            proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
         }
     }
 }

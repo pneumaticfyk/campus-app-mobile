@@ -1,5 +1,3 @@
-// D:\RN_Final_Try\CampusAppFinal\android\build.gradle
-
 buildscript {
     ext {
         buildToolsVersion = "34.0.0"
@@ -10,14 +8,11 @@ buildscript {
         kotlinVersion = "1.8.22"
     }
     repositories {
-        // 为构建工具自身提供仓库
         maven { url 'https://maven.aliyun.com/repository/google' }
         maven { url 'https://maven.aliyun.com/repository/public' }
     }
     dependencies {
-        // 使用我们验证过的、最稳定的构建工具版本组合
         classpath("com.android.tools.build:gradle:7.4.2")
         classpath("org.jetbrains.kotlin:kotlin-gradle-plugin:$kotlinVersion")
     }
 }
-// 注意：在这个文件中，我们不再需要 allprojects { ... } 代码块
